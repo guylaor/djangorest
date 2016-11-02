@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
 
+
 class ShortUrl(models.Model):
     short_url = models.CharField(max_length=20, null=True)
     default_url = models.CharField(max_length=800, null=False)

@@ -18,13 +18,13 @@ def index(request, short_url_id):
         u = ShortUrl.objects.get(short_url=short_url_id)
     except ShortUrl.DoesNotExist:
         json = "url key {} was not found".format(short_url_id)
-        return JsonResponse({'response':json})
+        return JsonResponse({'response': json})
 
     # very simple user agent detection
     user_agent_str = request.META['HTTP_USER_AGENT'].lower()
     if any(x in user_agent_str for x in ('ipad', 'tablet')):
         user_agent = 'tablet'
-    elif any(x in user_agent_str for x in ('iphone','android')):
+    elif any(x in user_agent_str for x in ('iphone', 'android')):
         user_agent = 'mobile'
     else:
         user_agent = 'desktop'
